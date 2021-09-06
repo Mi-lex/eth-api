@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { app, postgres } from './config';
+import { EthereumModule } from './modules/ethereum/ethereum.module';
 import validationSchema from './config/validationSchema';
 import postgresConfig from './config/postgres.config';
 
@@ -34,6 +35,7 @@ import postgresConfig from './config/postgres.config';
       },
       inject: [ConfigService],
     }),
+    EthereumModule,
   ],
   controllers: [AppController],
 })
