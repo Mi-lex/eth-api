@@ -1,4 +1,5 @@
 import { ConfigModule, ConfigService, ConfigType } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -35,6 +36,7 @@ import postgresConfig from './config/postgres.config';
       },
       inject: [ConfigService],
     }),
+    ScheduleModule.forRoot(),
     EthereumModule,
   ],
   controllers: [AppController],
