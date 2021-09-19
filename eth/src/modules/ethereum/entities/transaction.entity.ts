@@ -1,16 +1,22 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import Block from './block.entity';
 
-@Entity('users')
-export class Transaction {
+@Entity('transactions')
+export default class Transaction {
   @PrimaryGeneratedColumn()
   id: string;
 
   @Column()
   from: string;
 
-  @Column()
+  @Column({ nullable: true })
   to: string;
 
-  @Column({ type: 'bigint' })
+  @Column({
+    // type: 'bytea',
+  })
   value: string;
+
+  @ManyToOne(() => Block, (block) => block.transactions)
+  block: Block;
 }
