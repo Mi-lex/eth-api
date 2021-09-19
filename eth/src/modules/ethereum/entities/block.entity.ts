@@ -1,10 +1,13 @@
-import { Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Transaction } from './transaction.entity';
+import { Entity, OneToMany, PrimaryGeneratedColumn, Column } from 'typeorm';
+import Transaction from './transaction.entity';
 
-@Entity()
+@Entity('blocks')
 export default class Block {
   @PrimaryGeneratedColumn()
   id: string;
+
+  @Column({ unique: true })
+  serialNumber: number;
 
   @OneToMany(() => Transaction, (transaction) => transaction.block, {
     cascade: true,
