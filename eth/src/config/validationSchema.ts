@@ -14,4 +14,6 @@ export default Joi.object({
   POSTGRES_USER: Joi.string().default('postgres'),
   POSTGRES_PASS: Joi.string().default('123'),
   POSTGRES_DB_NAME: Joi.string().default('postgres'),
+  // etherscan
+  ETHERSCAN_API_KEY: Joi.string().required(),
 });
