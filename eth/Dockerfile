@@ -9,4 +9,4 @@ RUN npm i -g @nestjs/cli
 # Install dependencis
 RUN npm i
 # Start the server
-RUN npm start
+CMD ["npm", "start"]

@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
   postgres:
@@ -14,9 +14,24 @@ services:
   adminer:
     image: adminer
     restart: always
+    links:
+      - postgres
     depends_on:
       - postgres
     environment:
       ADMINER_DEFAULT_SERVER: "postgres"
     ports:
       - 8080:8080
+
+  eth:
+    build: "eth"
+    restart: unless-stopped
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_HOST: "postgres"
+      ETHERSCAN_API_KEY: ${ETHERSCAN_API_KEY}
+    ports:
+      - 9000:9000
