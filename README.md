@@ -25,7 +25,7 @@ You also need to get etherscan [API_KEY](https://docs.etherscan.io/getting-start
 1. Write down your API_KEY into .env file in the root dir:
 ```
 # .env
-ETHERSCAN_API_KEY=randomString
+ETHERSCAN_API_KEY=<YOUR_API_KEY>
 ```
 2. Launch app with docker-compose
 ```sh
